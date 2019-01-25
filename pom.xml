@@ -33,6 +33,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
 <!--
             <plugin>
@@ -47,15 +48,15 @@
                 <configuration>
                     <container>
                         <containerId>tomcat8x</containerId>
-                        <type>remote</type>
+                        <home>/opt/apache-tomcat-8.5.37</home>
                     </container>
                     <configuration>
                         <type>runtime</type>
                         <properties>
-                            <cargo.tomcat.manager.url>http://192.168.185.80:8082/manager</cargo.tomcat.manager.url>
+                            <cargo.tomcat.manager.url>http://192.168.185.80:8081/manager</cargo.tomcat.manager.url>
                             <cargo.remote.username>admin</cargo.remote.username>
                             <cargo.remote.password>admin</cargo.remote.password>
-                            <cargo.servlet.port>8082</cargo.servlet.port>
+                            <cargo.servlet.port>8081</cargo.servlet.port>
                             <cargo.hostname>192.168.185.80</cargo.hostname>
                             <cargo.tomcat.ajp.port>8009</cargo.tomcat.ajp.port>
                         </properties>
