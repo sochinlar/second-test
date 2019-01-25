@@ -40,16 +40,35 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 -->
-
             <plugin>
-                <artifactId>maven-war-plugin</artifactId>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.6.8</version>
                 <configuration>
-                    <!--如果想在没有web.xml文件的情况下构建WAR，请设置为false-->
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <!--设置war包的名字-->
-                    <warName>${project.artifactId}</warName>
+                    <container>
+                        <containerId>tomcat8x</containerId>
+                        <type>remote</type>
+                    </container>
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.tomcat.manager.url>http://192.168.185.80:8082/manager</cargo.tomcat.manager.url>
+                            <cargo.remote.username>admin</cargo.remote.username>
+                            <cargo.remote.password>admin</cargo.remote.password>
+                            <cargo.servlet.port>8082</cargo.servlet.port>
+                            <cargo.hostname>192.168.185.80</cargo.hostname>
+                            <cargo.tomcat.ajp.port>8009</cargo.tomcat.ajp.port>
+                        </properties>
+                    </configuration>
                 </configuration>
             </plugin>
+<!--            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>${project.artifactId}</warName>
+                </configuration>
+            </plugin>-->
             <!-- 让打包的时候跳过测试代码 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
