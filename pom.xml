@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.soc</groupId>
     <artifactId>second-test</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>second-test</name>
     <description>Demo project for Spring Boot</description>
@@ -35,41 +35,11 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
-<!--
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
--->
-            <plugin>
-                <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.6.8</version>
-                <configuration>
-                    <container>
-                        <containerId>tomcat8x</containerId>
-                        <home>/opt/apache-tomcat-8.5.37</home>
-                    </container>
-                    <configuration>
-                        <type>runtime</type>
-                        <properties>
-                            <cargo.tomcat.manager.url>http://192.168.185.80:8081/manager</cargo.tomcat.manager.url>
-                            <cargo.remote.username>admin</cargo.remote.username>
-                            <cargo.remote.password>admin</cargo.remote.password>
-                            <cargo.servlet.port>8081</cargo.servlet.port>
-                            <cargo.hostname>192.168.185.80</cargo.hostname>
-                            <cargo.tomcat.ajp.port>8009</cargo.tomcat.ajp.port>
-                        </properties>
-                    </configuration>
-                </configuration>
-            </plugin>
-<!--            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <warName>${project.artifactId}</warName>
-                </configuration>
-            </plugin>-->
+
             <!-- 让打包的时候跳过测试代码 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
